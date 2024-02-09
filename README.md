@@ -1,66 +1,188 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+### Manera 1
+## Ejecución de la Prueba Técnica en Laravel utilizando Postman
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Si no se cuenta con la posibilidad de clonar el proyecto, también puedes probar la API utilizando Postman. Sigue los siguientes pasos:
 
-## About Laravel
+1. **Descarga e instala Postman:**
+   Descarga e instala Postman desde [su sitio web oficial](https://www.postman.com/downloads/).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+2. **Abre Postman:**
+   Abre Postman en tu computadora.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+3. **Importa la colección de solicitudes:**
+   Haz clic en el botón "Importar" en la esquina superior izquierda de Postman. Selecciona la opción "Subir archivos" y selecciona el archivo de colección de solicitudes proporcionado.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+4. **Modifica la URL base:**
+   Una vez importada la colección, busca y selecciona la variable de entorno "BASE_URL". Modifica su valor para que coincida con la URL base del proyecto: `talentpitchassesment-production.up.railway.app`.
 
-## Learning Laravel
+5. **Realiza las solicitudes:**
+   Ahora puedes realizar solicitudes a las diferentes rutas de la API utilizando las solicitudes predefinidas en la colección de Postman. Cada solicitud está configurada con los métodos y rutas correspondientes para interactuar con los diferentes recursos del sistema.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+6. **Visualiza y gestiona los resultados:**
+   Después de realizar cada solicitud, Postman mostrará la respuesta del servidor. Puedes visualizar y gestionar los resultados según sea necesario.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Siguiendo estos pasos, podrás probar y familiarizarte con la Prueba Técnica de Laravel utilizando Postman sin necesidad de clonar el proyecto.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Manera 2
+## Guía para ejecutar la Prueba Técnica en Laravel
 
-## Laravel Sponsors
+### Requisitos previos
+- Tener instalado PHP8.2 o superior y Composer en su sistema.
+- Acceso a una base de datos PostgreSQL.
+- Conocimiento básico de Laravel y manejo de terminal.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Pasos para ejecutar la Prueba Técnica
 
-### Premium Partners
+1. **Clonar el repositorio:**
+   Clona el repositorio de la Prueba Técnica de Laravel desde el dominio especificado:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+   ```bash
+   git clone talentpitchassesment-production.up.railway.app
+   ```
 
-## Contributing
+2. **Configurar el entorno:**
+   - Copia el contenido del archivo `.env.example` y pégalo en un nuevo archivo llamado `.env`.
+   - Modifica las variables del archivo `.env` para que coincidan con la configuración de tu base de datos PostgreSQL y otras configuraciones específicas del proyecto.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   ```dotenv
+   APP_NAME=Laravel
+   APP_ENV=local
+   APP_KEY=
+   APP_DEBUG=true
+   APP_URL=http://localhost
 
-## Code of Conduct
+   LOG_CHANNEL=stack
+   LOG_DEPRECATIONS_CHANNEL=null
+   LOG_LEVEL=debug
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    #En caso de no contar con una BDD PGSQL usar los datos de conexion que se encuentran a continuacion.
+   DB_CONNECTION=pgsql
+   DB_HOST=roundhouse.proxy.rlwy.net
+   DB_PORT=35060
+   DB_DATABASE=TalentPitch
+   DB_USERNAME=postgres
+   DB_PASSWORD=f3e-3DbD5*GbBcfBFB5gbcBaAfC4e51a
 
-## Security Vulnerabilities
+   BROADCAST_DRIVER=log
+   CACHE_DRIVER=file
+   FILESYSTEM_DISK=local
+   QUEUE_CONNECTION=sync
+   SESSION_DRIVER=file
+   SESSION_LIFETIME=120
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   OPEN_API_KEY="TU_API_KEY_AQUI"
+   MAX_TOKENS_QUANTITY=3000
+   ```
 
-## License
+3. **Instalar dependencias:**
+   Ejecuta el siguiente comando para instalar todas las dependencias del proyecto:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   ```bash
+   composer install
+   ```
+
+4. **Generar la clave de la aplicación:**
+   Ejecuta el siguiente comando para generar la clave de la aplicación:
+
+   ```bash
+   php artisan key:generate
+   ```
+
+5. **Ejecutar migraciones:**
+   Ejecuta el siguiente comando para migrar la base de datos y crear las tablas necesarias:
+
+   ```bash
+   php artisan migrate
+   ```
+
+6. **Iniciar el servidor:**
+   Puedes iniciar un servidor local ejecutando el siguiente comando:
+
+   ```bash
+   php artisan serve
+   ```
+
+   Una vez iniciado, puedes acceder al proyecto en `http://localhost:8000`.
+
+### Uso de la API
+
+La API proporciona las siguientes rutas para interactuar con los recursos del sistema:
+
+- **Usuarios:**
+  - Generar datos de usuarios: `GET /api/users/generate/{dataQuantity}`
+  - Obtener todos los usuarios: `GET /api/users/fetch`
+  - Obtener un usuario específico: `GET /api/users/{id}`
+  - Actualizar un usuario: `PUT /api/users/{id}`
+    - **Solicitud JSON de actualización:**
+    ```json
+    {
+        "name": "Nuevo nombre",
+        "email": "nuevoemail@example.com",
+        "image_path": "nueva_ruta_de_imagen.jpg"
+    }
+    ```
+  - Eliminar un usuario: `DELETE /api/users/{id}`
+
+- **Desafíos:**
+  - Generar datos de desafíos: `GET /api/challenges/generate/{dataQuantity}`
+  - Obtener todos los desafíos: `GET /api/challenges/fetch`
+  - Obtener un desafío específico: `GET /api/challenges/{id}`
+  - Actualizar un desafío: `PUT /api/challenges/{id}`
+    - **Solicitud JSON de actualización:**
+    ```json
+    {
+        "title": "Nuevo título del desafío",
+        "description": "Nueva descripción del desafío",
+        "difficulty": 5,
+        "user_id": 1
+    }
+    ```
+  - Eliminar un desafío: `DELETE /api/challenges/{id}`
+
+- **Empresas:**
+  - Generar datos de empresas: `GET /api/companies/generate/{dataQuantity}`
+  - Obtener todas las empresas: `GET /api/companies/fetch`
+  - Obtener una empresa específica: `GET /api/companies/{id}`
+  - Actualizar una empresa: `PUT /api/companies/{id}`
+    - **Solicitud JSON de actualización:**
+    ```json
+    {
+        "name": "Nuevo nombre de la empresa",
+        "image_path": "nueva_ruta_de_imagen_empresa.jpg",
+        "location": "Nueva ubicación",
+        "industry": "Nueva industria",
+        "user_id": 1
+    }
+    ```
+  - Eliminar una empresa: `DELETE /api/companies/{id}`
+
+- **Programas:**
+  - Generar datos de programas: `GET /api/programs/generate/{dataQuantity}`
+  - Obtener todos los programas: `GET /api/programs/fetch`
+  - Obtener un programa específico: `GET /api/programs/{id}`
+  - Actualizar un programa: `PUT /api/programs/{id}`
+    - **Solicitud JSON de actualización:**
+    ```json
+    {
+      "title": "Nuevo título del programa",
+      "description": "Nueva descripción del programa",
+      "start_date": "2024-02-09",
+      "end_date": "2024-02-16",
+      "user_id": 1
+    }
+    ```
+  - Eliminar un programa: `DELETE /api/programs/{id}`
+
+- **Participantes del programa:**
+  - Generar datos de participantes del programa: `GET /api/program-participants/generate/{dataQuantity}`
+  - Obtener todos los participantes del programa: `GET /api/program-participants/fetch`
+  - Obtener un participante del programa específico: `GET /api/program-participants/{id}`
+  - Actualizar un participante del programa: `PUT /api/program-participants/{id}`
+    - **Solicitud JSON de actualización:**
+    ```json
+    {
+      "program_id": 1,
+      "entity_type": "user",
+      "entity_id": 1
+    }
+  - Eliminar un participante del programa: `DELETE /api/program-participants/{id}`
