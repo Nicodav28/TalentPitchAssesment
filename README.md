@@ -37,7 +37,7 @@ Siguiendo estos pasos, podrás probar y familiarizarte con la Prueba Técnica de
    Clona el repositorio de la Prueba Técnica de Laravel desde el dominio especificado:
 
    ```bash
-   [git clone talentpitchassesment-production.up.railway.app](https://github.com/Nicodav28/TalentPitchAssesment.git)
+   git clone https://github.com/Nicodav28/TalentPitchAssesment.git
    ```
 
 2. **Configurar el entorno:**
