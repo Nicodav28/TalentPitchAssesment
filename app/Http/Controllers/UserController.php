@@ -67,8 +67,10 @@ class UserController extends Controller
             
         Los siguientes datos existen actualmente en la base de datos: \n";
 
-        foreach ($users as $user) {
-            $prompt .= " - Nombre: $user->name, Email: $user->email, Imagen: $user->image_path \n";
+        if (!is_null($users)) {
+            foreach ($users as $user) {
+                $prompt .= " - Nombre: $user->name, Email: $user->email, Imagen: $user->image_path \n";
+            }
         }
 
         $prompt .= "Los nombres pueden repetirse, pero los emails y nombres de imágenes deben ser únicos, adicionalmente el nombre de la imagen solo debe ser el nombre, no la ruta ni el formato solo el nombre. La salida no debe tener nada mas debe que un JSON que
