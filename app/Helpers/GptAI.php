@@ -8,19 +8,19 @@ class GptAI
 {
     private $httpClient;
 
-    public function __construct(string $cacertPath)
+    public function __construct()
     {
         $this->httpClient = new Client([
             'base_uri' => 'https://api.openai.com/v1/chat/completions',
             'timeout'  => 30,
-            'verify' => $cacertPath,
+            'verify' => base_path('storage/certificates/cacert.pem'),
         ]);
     }
 
-    public function openAI(string $apiKey, string $prompt)
+    public function openAI(string $prompt)
     {
         try {
-            $response = $this->sendRequest($apiKey, $prompt);
+            $response = $this->sendRequest(getenv("OPEN_API_KEY"), $prompt);
 
             return [
                 "error" => false,

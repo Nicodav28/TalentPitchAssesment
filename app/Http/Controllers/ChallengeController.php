@@ -17,9 +17,9 @@ class ChallengeController extends Controller
 
             $prompt = $this->promptDefinition($dataQuantity, $challenges);
 
-            $gpt = new GptAI(base_path('storage/certificates/cacert.pem'));
+            $gpt = new GptAI();
 
-            $response = $gpt->openAI(getenv("OPEN_API_KEY"), $prompt);
+            $response = $gpt->openAI($prompt);
 
             if ($response['error']) {
                 throw new \Exception($response['message']);
@@ -64,12 +64,6 @@ class ChallengeController extends Controller
 
         foreach ($users as $user) {
             $prompt .= " - $user->id - ";
-        }
-
-        $prompt .= "Los siguientes datos existen actualmente en la base de datos: \n";
-
-        foreach ($params as $param) {
-            $prompt .= " - Titulo: $param->title, Descripcion: $param->description, Dificultad: $param->difficulty, UsuarioId: $param->user_id \n";
         }
 
         $prompt .= "La salida no debe tener nada mas que un JSON que contenga un array de conjuntos de datos, donde cada conjunto de datos esté representado como un objeto con las claves 'titulo', 'descripcion', 'dificultad' y 'usuarioId'.";

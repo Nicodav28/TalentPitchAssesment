@@ -15,9 +15,9 @@ class UserController extends Controller
         try {
             $prompt = $this->promptDefinition($dataQuantity, User::all());
 
-            $gpt = new GptAI(base_path('storage/certificates/cacert.pem'));
+            $gpt = new GptAI();
 
-            $response = $gpt->openAI(getenv("OPEN_API_KEY"), $prompt);
+            $response = $gpt->openAI($prompt);
 
             if ($response['error']) {
                 throw new \Exception($response['message']);
