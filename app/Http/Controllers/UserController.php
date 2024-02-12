@@ -44,13 +44,13 @@ class UserController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Datos generados correctamente",
                 "data" => $firstChoice
-            ]);
+            ], 200);
         } catch (Throwable $th) {
             // Retorna una respuesta JSON en caso de error.
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -107,7 +107,7 @@ class UserController extends Controller
             "status" => "SUCCESS",
             "message" => "Datos obtenidos correctamente",
             "data" => $users
-        ]);
+        ], 200);
     }
 
     /**
@@ -125,12 +125,12 @@ class UserController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Usuario obtenido correctamente",
                 "data" => $user
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -151,12 +151,12 @@ class UserController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Usuario actualizado correctamente",
                 "data" => $user
-            ]);
+            ], 200);
         } catch (Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -169,12 +169,12 @@ class UserController extends Controller
             return response()->json([
                 "status" => "SUCCESS",
                 "message" => "Usuario eliminado correctamente"
-            ]);
+            ], 200);
         } catch (Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 }

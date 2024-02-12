@@ -51,13 +51,13 @@ class ProgramParticipantController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Datos generados correctamente",
                 "data" => $firstChoice
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             // Retorna una respuesta JSON en caso de error.
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -120,7 +120,7 @@ class ProgramParticipantController extends Controller
             "status" => "SUCCESS",
             "message" => "Datos obtenidos correctamente",
             "data" => $programPart
-        ]);
+        ], 200);
     }
 
     /**
@@ -140,12 +140,12 @@ class ProgramParticipantController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Participante del programa actualizado correctamente",
                 "data" => $programPart
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -164,12 +164,12 @@ class ProgramParticipantController extends Controller
             return response()->json([
                 "status" => "SUCCESS",
                 "message" => "Participante del programa eliminado correctamente"
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -188,12 +188,12 @@ class ProgramParticipantController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Participante del programa obtenido correctamente",
                 "data" => $programPart
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 }

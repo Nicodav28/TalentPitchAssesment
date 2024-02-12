@@ -51,13 +51,13 @@ class ChallengeController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Datos generados correctamente",
                 "data" => $firstChoice
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             // Retorna una respuesta JSON en caso de error.
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -98,7 +98,7 @@ class ChallengeController extends Controller
             "status" => "SUCCESS",
             "message" => "Datos obtenidos correctamente",
             "data" => $challenges
-        ]);
+        ], 200);
     }
 
     /**
@@ -116,13 +116,13 @@ class ChallengeController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Desafío obtenido correctamente",
                 "data" => $challenge
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             // Retorna una respuesta JSON en caso de error.
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -143,13 +143,13 @@ class ChallengeController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Desafío actualizado correctamente",
                 "data" => $challenge
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             // Retorna una respuesta JSON en caso de error.
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -162,12 +162,12 @@ class ChallengeController extends Controller
             return response()->json([
                 "status" => "SUCCESS",
                 "message" => "Desafío eliminado correctamente"
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 }

@@ -54,13 +54,13 @@ class CompanyController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Datos generados correctamente",
                 "data" => $firstChoice
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             // Retorna una respuesta JSON en caso de error.
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -108,7 +108,7 @@ class CompanyController extends Controller
             "status" => "SUCCESS",
             "message" => "Datos obtenidos correctamente",
             "data" => $companies
-        ]);
+        ], 200);
     }
 
     public function update(Request $request, $id): JsonResponse
@@ -121,12 +121,12 @@ class CompanyController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Empresa actualizada correctamente",
                 "data" => $company
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -139,12 +139,12 @@ class CompanyController extends Controller
             return response()->json([
                 "status" => "SUCCESS",
                 "message" => "Empresa eliminada correctamente"
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -157,12 +157,12 @@ class CompanyController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Empresa obtenida correctamente",
                 "data" => $company
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 }

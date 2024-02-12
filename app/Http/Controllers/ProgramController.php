@@ -51,13 +51,13 @@ class ProgramController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Datos generados correctamente",
                 "data" => $firstChoice
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             // Retorna una respuesta JSON en caso de error.
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -96,7 +96,7 @@ class ProgramController extends Controller
             "status" => "SUCCESS",
             "message" => "Datos obtenidos correctamente",
             "data" => $program
-        ]);
+        ], 200);
     }
 
     /**
@@ -116,12 +116,12 @@ class ProgramController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Programa actualizado correctamente",
                 "data" => $program
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -140,12 +140,12 @@ class ProgramController extends Controller
             return response()->json([
                 "status" => "SUCCESS",
                 "message" => "Programa eliminado correctamente"
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 
@@ -158,12 +158,12 @@ class ProgramController extends Controller
                 "status" => "SUCCESS",
                 "message" => "Programa obtenido correctamente",
                 "data" => $program
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => "ERROR",
                 "message" => $th->getMessage()
-            ]);
+            ], 500);
         }
     }
 }
