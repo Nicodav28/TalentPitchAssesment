@@ -185,4 +185,27 @@ La API proporciona las siguientes rutas para interactuar con los recursos del si
       "entity_type": "user",
       "entity_id": 1
     }
+    ```
   - Eliminar un participante del programa: `DELETE /api/program-participants/{id}`
+
+### Test Unitarios
+   Para ejecutar los test unitarios se debe ejecutar el siguiente comando en la terminal:
+
+   ```bash
+   .vendor/bin/pest
+   ```
+
+   En caso de haber instalado las dependencias de manera correcta, el comando deberia generar una salida
+   como esta:
+   
+   ```bash
+   $ ./vendor/bin/pest
+
+   PASS  Tests\Unit\CreateUserTest
+   ✓ it performs the creation of 1 or more users acording to the generated data from GPT API                              26.50s  
+   ✓ it throws an error due there's no parameter to specify the quantity of users wants to be created                      2.55s  
+
+   Tests:    2 passed (4 assertions)
+   Duration: 29.24s
+   ```
+   
